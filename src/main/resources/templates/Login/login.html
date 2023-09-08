@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style type="text/css">
+        h1{
+            color: #fff;
+        }
+        body{
+            background-size: fill;
+            background: radial-gradient(circle, rgba(40,40,121,1) 0%, rgba(60,60,161,1) 35%, rgba(80,80,201,1) 100%);
+            height: 100vh;
+        }
+    </style>
+    <title>Agro Hábil</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Agro Hábil</h1>
+    <form action="/" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="sp_usuario"><i class="fa-solid fa-user"></i></span>
+            <input id="cpf_cnpj" name="cpf_cnpj" type="text" class="form-control" placeholder="CPF"
+                   aria-label="Username" aria-describedby="sp_usuario">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="sp_senha"><i class="fa-solid fa-lock"></i></span>
+            <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha"
+                   aria-label="Username" aria-describedby="sp_senha">
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <input value="Login" type="submit" class="btn btn-primary">
+            </div>
+            <div class="col-sm-6 text-end">
+                <a class="btn btn-success" href="/cadUsuario">Cadastre-se</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
