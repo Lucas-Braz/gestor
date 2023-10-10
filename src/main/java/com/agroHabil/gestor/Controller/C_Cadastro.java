@@ -2,17 +2,20 @@ package com.agroHabil.gestor.Controller;
 
 import com.agroHabil.gestor.Model.M_Resposta;
 import com.agroHabil.gestor.Service.S_Cad_Usuario;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class C_Cadastro {
     @GetMapping("/cadUsuario")
-    public String getCadUsuario(){
-        return "Usuario/cadastro";
+    public String getCadUsuario(HttpServletRequest request){
+        String referer = request.getHeader("Referer");
+        if(referer != null) {
+            return "Usuario/cadastro";
+        }else{
+            return "/error";
+        }
     }
 
     @PostMapping("/cadUsuario")

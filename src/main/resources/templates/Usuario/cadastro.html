@@ -10,61 +10,57 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style type="text/css">
-        h1{
-            color: #fff;
-        }
-        body{
-            background-size: fill;
-            background: radial-gradient(circle, rgba(40,40,121,1) 0%, rgba(60,60,161,1) 35%, rgba(80,80,201,1) 100%);
-            height: 100vh;
-        }
-    </style>
-    <title>Document</title>
+    <link rel="stylesheet" href="css/default.css">
+
+    <script src="js/default.js" defer></script>
+    <script src="js/cadastro.js" defer></script>
+    <title>Agro Hábil Gestor</title>
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center">Agro Hábil</h1>
-    <form action="/cadUsuario" method="post">
+    <h1 class="text-center">Cadastre-se</h1>
+<!--    <form action="/cadUsuario" method="post">-->
         <div class="row">
             <div class="col-sm-8">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 nome">
                     <span class="input-group-text" id="sp_nome"><i class="fa-solid fa-user"></i></span>
                     <input id="nome" name="nome" type="text" class="form-control" placeholder="Nome"
                            aria-describedby="sp_nome">
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 cpf">
                     <span class="input-group-text" id="sp_cpf"><i class="fa-solid fa-address-card"></i></span>
                     <input id="cpf_cnpj" name="cpf_cnpj" type="text" class="form-control" placeholder="CPF ex(000.000.000-00)"
                            aria-describedby="sp_senha">
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 email">
                     <span class="input-group-text" id="sp_email"><i class="fa-regular fa-envelope"></i></span>
                     <input id="email" name="email" type="text" class="form-control" placeholder="email@email.com"
                            aria-describedby="sp_email">
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 email">
                     <span class="input-group-text" id="sp_telefone"><i class="fa-solid fa-phone"></i></span>
                     <input id="telefone" name="telefone" type="text" class="form-control"
                            placeholder="Telefone (00) 0 0000-0000" aria-describedby="sp_email">
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 senha">
                     <span class="input-group-text" id="sp_senha"><i class="fa-solid fa-lock"></i></span>
                     <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha"
                            aria-describedby="sp_senha">
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 senha">
                     <span class="input-group-text" id="sp_conf_senha"><i class="fa-solid fa-lock"></i></span>
                     <input id="conf_senha" name="conf_senha" type="password" class="form-control"
                            placeholder="Confirmação de Senha" aria-describedby="sp_conf_senha">
@@ -74,10 +70,10 @@
                 <a class="btn btn-dark" href="/"><i class="fa-solid fa-arrow-rotate-left"></i> Voltar</a>
             </div>
             <div class="col-sm-6 text-end">
-                <input value="Cadastrar" type="submit" class="btn btn-primary">
+                <button id="btnCadastrar" class="btn btn-primary" onclick="validaEnvio()">Cadastrar</button>
             </div>
         </div>
-    </form>
+<!--    </form>-->
 </div>
 </body>
 </html>
