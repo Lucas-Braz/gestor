@@ -1,6 +1,7 @@
 package com.agroHabil.gestor.Controller;
 
 import com.agroHabil.gestor.Model.M_Pessoa;
+import com.agroHabil.gestor.Model.M_Teste;
 import com.agroHabil.gestor.Service.S_Login;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class C_Login {
@@ -27,5 +31,11 @@ public class C_Login {
             model.addAttribute("nome", "Bem Vindo(a) " + pessoa.getNome());
             return "Home/home";
         }
+    }
+
+    @GetMapping("/teste")
+    @ResponseBody
+    public List<M_Teste> testePage(){
+        return S_Login.buscaTeste();
     }
 }

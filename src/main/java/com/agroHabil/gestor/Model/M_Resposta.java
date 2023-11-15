@@ -3,7 +3,9 @@ package com.agroHabil.gestor.Model;
 public class M_Resposta {
     private boolean sucesso;
     private String mensagem;
-    private String paginaEstatica;
+
+    public M_Resposta() {
+    }
 
     public M_Resposta(boolean sucesso, String mensagem) {
         this.sucesso = sucesso;
@@ -24,13 +26,5 @@ public class M_Resposta {
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
-    }
-
-    public String getPaginaEstatica() {
-        return paginaEstatica;
-    }
-
-    public void setPaginaEstatica(String paginaEstatica) {
-        this.paginaEstatica = paginaEstatica;
     }
 }

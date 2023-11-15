@@ -81,5 +81,3 @@ function validarCPF(cpf) {
 	}
 	return true;
 }
-
-$.get(event){}
