@@ -1,20 +1,22 @@
 let dataCalendario = new Date();
 let dataSelecionada = new Date();
 
-$(document).ready(function() {
+$(document).ready(function(){
     createCalendar(dataCalendario);
 
-
     $("#next-month").click(function(){
-        dataCalendario.setMonth(dataCalendario.getMonth()+1);
-        createCalendar(dataCalendario);
+        atualizaCalendario(1);
     });
 
     $("#previous-month").click(function(){
-        dataCalendario.setMonth(dataCalendario.getMonth()-1);
-        createCalendar(dataCalendario);
+        atualizaCalendario(-1);
     });
 });
+
+function atualizaCalendario(att){
+    dataCalendario.setMonth(dataCalendario.getMonth()+(att));
+    createCalendar(dataCalendario);
+}
 
 function createCalendar(data){
     data.setHours(0,0,0,0);
@@ -30,23 +32,33 @@ function createCalendar(data){
     }
 
     let dataFim = new Date(data.getFullYear(),data.getMonth()+1,0);
+
     if(dataFim.getDay() !== 6){
         dataFim.setDate(dataFim.getDate() + (6 - dataFim.getDay()));
     }
 
+    imprimeCabecalhoCalendario(data);
+    imprimeDatasCalendario(new Date(dataInicio),dataFim,data);
+
+    atualizaDataAtividades();
+    ativarClickCalendario();
+}
+
+function imprimeCabecalhoCalendario(data){
     const nomeMeses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-                            "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+                                "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
     $("#mes").text(nomeMeses[data.getMonth()]);
-    $("#ano").text(dataCalendario.getFullYear());
+    $("#ano").text(data.getFullYear());
+}
 
+function imprimeDatasCalendario(dataAux,dataFim,data){
     $("tbody").text("");
     let linha = 0;
     let count = 0;
-
-    let dataAux = new Date(dataInicio);
-    dataAux.setHours(0,0,0,0);
     let classe = "";
+
+    dataAux.setHours(0,0,0,0);
     while(dataAux <= dataFim){
         if(count % 7 == 0){
             linha++;
@@ -66,17 +78,19 @@ function createCalendar(data){
         dataAux.setDate(dataAux.getDate() + 1);
         count++;
     }
+}
+
+function atualizaDataAtividades(){
     $("#data").text(dataSelecionada.toLocaleDateString());
-    ativarClickCalendario();
 }
 
 function ativarClickCalendario(){
-    $('td').click(function(params) {
+    $('td').click(function(params){
         if(!$(this).hasClass("outro-mes")){
             $('.dia-ativo').removeClass('dia-ativo');
             $(this).addClass('dia-ativo');
             dataSelecionada = new Date(parseInt(($(this).attr("id"))));
-            $("#data").text(dataSelecionada.toLocaleDateString());
+            atualizaDataAtividades();
         }
     });
 }
